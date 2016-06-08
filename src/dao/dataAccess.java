@@ -1,17 +1,32 @@
 package dao;
 
 public class dataAccess {
-	private static String daoName = "sqliteDao";
+	private static String db = "sqlite";
 
 	public static IGuitar createGuitarDao() {
 		IGuitar result = null;
-		try {
-			Object o = Class.forName(daoName + "." + "GuitarImpl").newInstance();
-			result = (IGuitar)o;
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		switch (db) {
+		case "sqlite":
+			result = new sqliteDao.GuitarImpl();
+			break;
+		case "mysql":
+			result = new mysqlDao.GuitarImpl();
+			break;
 		}
 		return result;
 	}
+
+	public static IUser createUserDao() {
+		IUser ret = null;
+		switch (db) {
+		case "sqlite":
+			ret = new sqliteDao.UserImpl();
+			break;
+		case "mysql":
+			ret = new mysqlDao.UserImpl();
+			break;
+		}
+		return ret;
+	}
+
 }

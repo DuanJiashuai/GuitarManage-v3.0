@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>吉他列表</title>
+<link href="css/blue.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<style>
+html, body {
+	font-family: 'Lato', 微软雅黑;
+	font-size: 100%;
+	background: #fff;
+	padding: 1em 2em;
+}
+</style>
+</head>
+<body>
+	<div>
+		<h2>吉他列表</h2>
+	</div>
+	<hr />
+	<div id="action">
+		<button id="checkAll" class="btn btn-default" onclick="checkAll();">
+			<span class="glyphicon glyphicon-check" aria-hidden="true"></span>全选
+		</button>
+		<button id="deleteGuitar" class="btn btn-default"
+			onclick="deleteGuitar();">
+			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>删除
+		</button>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<tr>
+				<th></th>
+				<th>#</th>
+				<th>制造商</th>
+				<th>型号</th>
+				<th>类型</th>
+				<th>弦数</th>
+				<th>顶部木料</th>
+				<th>背部木料</th>
+				<th>价格</th>
+			</tr>
+		</table>
+	</div>
+	<button class="btn btn-primary btn-block" id="modal-858341"
+		href='#modal-container-858341' role='button' data-toggle='modal'>
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>点此添加新的吉他
+	</button>
+	<div class="modal fade" id="modal-container-858341" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="AddGuitar" method="post" onsubmit="alert('添加成功！');">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">添加吉他</h4>
+					</div>
+					<div class="modal-body" style="text-align: center;">
+						<h3>基本信息</h3>
+						<table id="guitarInfo" align="center">
+							<tr>
+								<td>吉他编号：</td>
+								<td><input type="text" name="serialNumber"
+									id="serialNumber" placeholder="输入吉他编号..." class="form-control" /></td>
+							</tr>
+							<tr>
+								<td>制造商：</td>
+								<td><select class="selector form-control" name="builder">
+										<option value="Fender">Fender</option>
+										<option value="Martin">Martin</option>
+										<option value="Gibson">Gibson</option>
+										<option value="Collings">Collings</option>
+										<option value="Olson">Olson</option>
+										<option value="Ryan">Ryan</option>
+										<option value="PRS">PRS</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>吉他类型：</td>
+								<td><input type="radio" name="type" value="acoustic" />&nbsp;Acoustic
+									<input type="radio" name="type" value="electric" />&nbsp;Electric
+								</td>
+							</tr>
+							<tr>
+								<td>背部木料：</td>
+								<td><select class="selector form-control" name="backWood">
+										<option value="Indian Rosewood">Indian Rosewood</option>
+										<option value="Brazilian Rosewood">Brazilian Rosewood</option>
+										<option value="Mahogany">Mahogany</option>
+										<option value="Maple">Maple</option>
+										<option value="Cocobolo">Cocobolo</option>
+										<option value="Cedar">Cedar</option>
+										<option value="Adirondack">Adirondack</option>
+										<option value="Alder">Alder</option>
+										<option value="Sitka">Sitka</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>顶部木料：</td>
+								<td><select class="selector form-control" name="topWood">
+										<option value="Indian Rosewood">Indian Rosewood</option>
+										<option value="Brazilian Rosewood">Brazilian Rosewood</option>
+										<option value="Mahogany">Mahogany</option>
+										<option value="Maple">Maple</option>
+										<option value="Cocobolo">Cocobolo</option>
+										<option value="Cedar">Cedar</option>
+										<option value="Adirondack">Adirondack</option>
+										<option value="Alder">Alder</option>
+										<option value="Sitka">Sitka</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>吉他弦数：</td>
+								<td><input type="text" name="stringNum" id="stringNum"
+									placeholder="输入弦数..." class="form-control" /></td>
+							</tr>
+							<tr>
+								<td>吉他型号：</td>
+								<td><input type="text" name="model" id="model"
+									placeholder="输入型号..." class="form-control" /></td>
+							</tr>
+							<tr>
+								<td>商品价格：</td>
+								<td><input type="text" name="price" id="price"
+									placeholder="输入价格..." class="form-control" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">确认添加</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/guitarList.js"></script>
+<script src="js/icheck.js"></script>
+</html>
